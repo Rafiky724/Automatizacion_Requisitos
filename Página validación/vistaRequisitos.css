@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "roboto";
+}
+
+:root {
+  --white: #fff;
+  --orange: #fc6b2d;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-image: url(background.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 150vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 0;
+}
+
+.title {
+  text-transform: uppercase;
+  padding-top: 1em;
+  font-weight: bold;
+  font-size: 3em;
+  color: var(--white);
+  text-align: center;
+}
+
+.title-subtitle {
+  text-transform: uppercase;
+  /* font-weight: 300; */
+  padding-top: 5px;
+  font-size: 10px;
+  color: var(--white);
+  text-align: center;
+}
+
+.reqs-container {
+  position: absolute;
+  width: 90%;
+  margin-left: 20px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.general-req-containers {
+  display: flex;
+  gap: 50px;
+}
+
+.req-container {
+  position: relative;
+  padding: 1px;
+  width: 820px;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-sizing: content-box;
+}
+
+.container-asignation {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 30px;
+  border-radius: 30px;
+  width: 172px;
+  box-sizing: content-box;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.req-text-container {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.title-req {
+  font-weight: bold;
+  color: var(--orange);
+  font-size: 20px;
+}
+
+.description-req {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--white);
+}
+
+.ckeck-buttons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  border-style: none;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.btn-check {
+  background-color: var(--orange);
+  transition-duration: 0.3s;
+  color: var(--white);
+}
+
+.btn-check:hover {
+  cursor: pointer;
+  transition-duration: 0.3s;
+  background-color: #bb3800;
+}
+
+.btn-cancel {
+  background-color: var(--white);
+  transition-duration: 0.3s;
+}
+
+.btn-cancel:hover {
+  cursor: pointer;
+  transition-duration: 0.3s;
+  color: var(--white);
+  background-color: #8d8d8d;
+}
+
+.btn-validacion {
+  position: fixed;
+  right: 80px;
+  bottom: 50px;
+  width: 245px;
+  height: 70px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-style: none;
+  border-radius: 20px;
+  font-size: 20px;
+  color: var(--white);
+  transition-duration: 0.4s;
+  background-color: var(--orange);
+  z-index: 2;
+}
+
+.btn-validacion:hover {
+  cursor: pointer;
+  background-color: #bb3800;
+  transition-duration: 0.4s;
+}
