@@ -110,6 +110,7 @@ body {
   display: flex;
   align-items: center;
   gap: 15px;
+  /* display: none; */
 }
 
 .btn {
@@ -166,4 +167,11 @@ body {
   cursor: pointer;
   background-color: #bb3800;
   transition-duration: 0.4s;
+}
+
+.hidden {
+  display: none;
+}
+.visible {
+  display: flex;
 }
