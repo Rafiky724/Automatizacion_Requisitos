@@ -1,0 +1,46 @@
+{% extends './layout.html' %} 
+
+{% block title %} 
+    {{data.titulo}} 
+{% endblock %}
+
+{% block body %} 
+
+    {% block nav %} 
+        {% include 'components/navBar.html' %} 
+    {% endblock %}
+
+    <main class="contenedorTarjeta">
+    <div class="contenido">
+        <p>Bienvenido</p>
+        <p>Selecciona una opción</p>
+        <div class="contenido_opciones">
+        <div class="opciones_imagen">
+            <a href=""
+            ><img
+                src="{{ url_for('static', filename=data['navegacion']['logo']) }}"
+                alt="Logo ACME"
+                width="100px"
+            /></a>
+        </div>
+        <div class="opciones_imagen">
+            <a href=""
+            ><img
+                src="{{ url_for('static', filename=data['navegacion']['logo']) }}"
+                alt="Logo ACME"
+                width="100px"
+            /></a>
+        </div>
+        <div class="opciones_imagen">
+            <a href=""
+            ><img
+                src="{{ url_for('static', filename=data['navegacion']['logo']) }}"
+                alt="Logo ACME"
+                width="100px"
+            /></a>
+        </div>
+        </div>
+    </div>
+    </main>
+
+{% endblock %}
