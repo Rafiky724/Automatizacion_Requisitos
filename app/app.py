@@ -30,6 +30,19 @@ def index():
     }
     return render_template('index.html', data=data) 
 
+@app.route('/patron')
+def patron():
+    data = {
+        'titulo':'Inicio',
+        'navegacion': {
+            'logo': 'img/Logo.png',
+            'patron': 'Patrón',
+            'asignar': 'Asignar',
+            'depuracion': 'Depuración'
+        },        
+    }
+    return render_template('patron.html', data = data)
+
 # @app.route('/contacto/<nombre>/<int:edad>')
 # def contacto(nombre, edad):
 #     data ={

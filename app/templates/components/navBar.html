@@ -2,18 +2,19 @@
   <nav class="nav-bar">
     <div class="navBar-div">
       <figure class="navBar-div-image">
-        <img
-          src="{{ url_for('static', filename=data['navegacion']['logo']) }}"
-          alt="Logo ACME"
-          width="100px"
-        />
+        <a href="/"
+          ><img
+            src="{{ url_for('static', filename=data['navegacion']['logo']) }}"
+            alt="Logo ACME"
+            width="100px"
+        /></a>
       </figure>
     </div>
     <div class="navBar-list-container">
       <ul class="navBar-list">
-        <li><a>{{data['navegacion']['patron']}}</a></li>
-        <li><a>{{data['navegacion']['asignar']}}</a></li>
-        <li class="puntica"><a>{{data['navegacion']['depuracion']}}</a></li>
+        <li><a href="/patron">{{data['navegacion']['patron']}}</a></li>
+        <li><a href="/">{{data['navegacion']['asignar']}}</a></li>
+        <li class="puntica"><a href="/">{{data['navegacion']['depuracion']}}</a></li>
       </ul>
     </div>
   </nav>
