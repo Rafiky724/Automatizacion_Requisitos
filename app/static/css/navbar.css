@@ -1,4 +1,51 @@
-.navegacion {
-    background-color: rgb(69, 185, 252);
-    display: flex;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+:root {
+  font-family: "Inter";
+}
+
+/*Estilos navBar*/
+.nav-bar {
+  background-image: linear-gradient(to right, #023373, #012840);
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  border-radius: 0 0 20px 20px;
+}
+
+.navBar-div {
+  max-height: 100%;
+  max-width: 10vw;
+  display: flex;
+  align-items: center;
+}
+
+.navBar-div-image img {
+  width: 80px;
+  margin: 10px;
+}
+
+.navBar-list-container {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  flex-grow: 1;
+}
+
+.navBar-list {
+  display: flex;
+  list-style: none;
+  font-size: 1rem;
+  height: 100%;
+}
+
+.navBar-list a {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 20px;
+  text-decoration: none;
+  color: #eee;
+  transition-duration: 0.3s;
 }

@@ -1,16 +1,20 @@
 <header>
-    <nav class="navegacion">
-      <div class="logo">
+  <nav class="nav-bar">
+    <div class="navBar-div">
+      <figure class="navBar-div-image">
         <img
           src="{{ url_for('static', filename=data['navegacion']['logo']) }}"
           alt="Logo ACME"
           width="100px"
         />
-      </div>
-      <ul class="navegacion_opciones">
-        <li><p>{{data['navegacion']['patron']}}</p></li>
-        <li><p>{{data['navegacion']['asignar']}}</p></li>
-        <li><p>{{data['navegacion']['depuracion']}}</p></li>
+      </figure>
+    </div>
+    <div class="navBar-list-container">
+      <ul class="navBar-list">
+        <li><a>{{data['navegacion']['patron']}}</a></li>
+        <li><a>{{data['navegacion']['asignar']}}</a></li>
+        <li><a>{{data['navegacion']['depuracion']}}</a></li>
       </ul>
-    </nav>
-  </header>
+    </div>
+  </nav>
+</header>

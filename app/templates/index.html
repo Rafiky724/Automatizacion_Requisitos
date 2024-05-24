@@ -6,41 +6,51 @@
 
 {% block body %} 
 
-    {% block nav %} 
-        {% include 'components/navBar.html' %} 
-    {% endblock %}
-
-    <main class="contenedorTarjeta">
-    <div class="contenido">
-        <p>Bienvenido</p>
-        <p>Selecciona una opción</p>
-        <div class="contenido_opciones">
-        <div class="opciones_imagen">
-            <a href=""
-            ><img
-                src="{{ url_for('static', filename=data['navegacion']['logo']) }}"
-                alt="Logo ACME"
-                width="100px"
-            /></a>
+    <!-- CUADRO -->
+    <section class="container">
+      <!-- TITULO -->
+      <div class="title-container">
+        <h2>Bienvenido</h2>
+        <p>Seleccione una opcion</p>
+      </div>
+      <!-- CARDS -->
+      <div class="options-container">
+        <!-- CARD PATRON -->
+        <!-- <a class="ancor-enrutador" href="#"> -->
+        <div class="card patron-container-option">
+          <figure class="card-figure">
+            <img
+              class="card-img"
+              src="{{ url_for('static', filename=data['imagenes']['patron_img']) }}"
+              alt="menu-image"
+            />
+          </figure>
+          <p class="card-text">Generar patrón<br />de sintaxis</p>
         </div>
-        <div class="opciones_imagen">
-            <a href=""
-            ><img
-                src="{{ url_for('static', filename=data['navegacion']['logo']) }}"
-                alt="Logo ACME"
-                width="100px"
-            /></a>
+        <!-- </a> -->
+        <!-- CARD ASIGNAR -->
+        <div class="card asignar-container-option">
+          <figure class="card-figure">
+            <img
+              class="card-img"
+              src="{{ url_for('static', filename=data['imagenes']['asignar_img']) }}"
+              alt="menu-image"
+            />
+          </figure>
+          <p class="card-text">Asignar validador<br />a un requisito</p>
         </div>
-        <div class="opciones_imagen">
-            <a href=""
-            ><img
-                src="{{ url_for('static', filename=data['navegacion']['logo']) }}"
-                alt="Logo ACME"
-                width="100px"
-            /></a>
+        <!-- CARD CONTROL -->
+        <div class="card control-container-option">
+          <figure class="card-figure">
+            <img
+              class="card-img"
+              src="{{ url_for('static', filename=data['imagenes']['depurar_img']) }}"
+              alt="menu-image"
+            />
+          </figure>
+          <p class="card-text">Control de cambio</p>
         </div>
-        </div>
-    </div>
-    </main>
+      </div>
+    </section>
 
 {% endblock %}
