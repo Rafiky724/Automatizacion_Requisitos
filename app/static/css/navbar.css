@@ -47,5 +47,15 @@
   padding: 0 20px;
   text-decoration: none;
   color: #eee;
+  
+}
+
+.navBar-list a:hover {
+  background-color: #023373;
   transition-duration: 0.3s;
+}
+
+.puntica a:hover {
+  border-radius:  0 0 20px 0 ;
+  transition-duration: 0s;
 }

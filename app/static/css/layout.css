@@ -21,6 +21,7 @@ a {
 /*Estilos titulo contenedor*/
 
 .title-container {
+  margin-top: 10px;
   width: 90%;
 }
 
@@ -49,7 +50,12 @@ a {
 }
 
 .card-figure {
-  height: 50%;
+  margin: 10px;
+  width: 125px;
+  height: 125px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 100%;
 }
 
 .card-img {
@@ -70,7 +76,7 @@ a {
 .asignar-container-option:hover,
 .control-container-option:hover {
   transition-duration: 0.2s;
-  box-shadow: inset 0 0 10px black;
+  box-shadow: inset 0 0 5px black;
 }
 
 .asignar-container-option {
@@ -90,4 +96,5 @@ a {
   font-size: 1em;
   line-height: 1.1;
   text-align: center;
+  margin: 10px;
 }
