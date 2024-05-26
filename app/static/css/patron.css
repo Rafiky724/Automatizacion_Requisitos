@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: "Inter";
+}
+
+.container-req {
+    width: 90%;
+    margin-top: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2% 0;
+    border-radius: 100px;
+}
+
+.req-back{
+
+    height: 70vh;
+    width: 90vh;
+
+}
+
+.req-square-container{
+
+    background-color: #EFEFEF;
+    border-radius: 30px;
+    padding-top: 1px;
+    padding-bottom: 10px;
+}
+
+.text-add-req{
+
+    color: #7F7F7F;
+    font-size: 150%;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    font-weight: 600;
+
+}
+
+.form-container{
+
+    background-color: white;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+.form-group{
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    color: #7F7F7F;
+    font-weight: 600;
+
+}
+
+.text-input{
+
+    background-color: #EFEFEF;
+    border-style: none;
+    color: #7F7F7F;
+    margin-top: 5px;
+    border-radius: 8px;
+    
+
+}
+
+.text-input-re{
+    height: 35px;
+    padding-left: 5px;
+    font-size: 100%;
+}
+
+.textarea-req{
+
+    height: 80px;
+    padding-left: 5px;
+    padding-top: 5px;
+    font-size: 100%;
+    font-family: "Inter";
+
+}
+
+.bottom-req{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.radio-requirments{
+
+    display: flex;
+    flex-direction: column;
+    color: #7F7F7F;
+    font-weight: 600;
+
+}
+
+.RequirementBtn{
+
+    background-color: #41BF91;
+    border-style: none;
+    height: 35px;
+    width: 80px;
+    border-radius: 7px;
+    color: white;
+    transition-duration: 0.2s;
+    font-weight: 400;
+    font-size: 90%;
+
+}
+
+.RequirementBtn:hover{
+
+    background-color: #168059;
+    transition-duration: 0.2s;
+    cursor: pointer;
+
+}
+
+.container-req-add{
+
+    background-color: white;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+
+}
+
+.text-titulo-req{
+
+    color: #7F7F7F;
+    font-weight: 600;
+
+}
+
+.text-det-req{
+
+    color: #7F7F7F;
+    font-weight: 400;
+
+}
+
+.div-button{
+
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+
+}
+
+.btn-next{
+
+    background-color: #ED8B00;
+    border-style: none;
+    height: 35px;
+    width: 80px;
+    border-radius: 7px;
+    color: white;
+    transition-duration: 0.2s;
+    font-weight: 400;
+    font-size: 90%;
+
+}
+
+.btn-next:hover{
+
+    cursor: pointer;
+    background-color: #b86b00;
+    transition-duration: 0.2s;
+
+}
+
+.card-figure2{
+
+    width: 30vw;
+
+}

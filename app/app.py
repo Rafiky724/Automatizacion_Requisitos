@@ -38,10 +38,25 @@ def patron():
             'logo': 'img/Logo.png',
             'patron': 'Patrón',
             'asignar': 'Asignar',
-            'depuracion': 'Depuración'
+            'depuracion': 'Depuración',
+            'robot': 'img/robot.jpg'
         },        
     }
     return render_template('patron.html', data = data)
+
+@app.route('/patron2')
+def patron2():
+    data = {
+        'titulo':'Inicio',
+        'navegacion': {
+            'logo': 'img/Logo.png',
+            'patron': 'Patrón',
+            'asignar': 'Asignar',
+            'depuracion': 'Depuración',
+            'robot': 'img/robot.jpg'
+        },        
+    }
+    return render_template('patron2.html', data = data)
 
 @app.route('/asignar')
 def asignar():

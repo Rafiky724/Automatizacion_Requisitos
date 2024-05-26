@@ -1,0 +1,184 @@
+.container2 {
+    width: 80vw;
+    height: 70vh;
+    border-radius: 40px;
+    margin: 2%;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(20, auto);
+    overflow: hidden;
+}
+
+.container1 {
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.title {
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    color: #fff;
+    background-color: #004B87;
+    border-radius: 40px 40px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 130%;
+    font-weight: 500;
+    padding: 15px;
+}
+
+.added-reques {
+    grid-column: 1/2;
+    grid-row: 2/-1;
+}
+
+.generated-reques {
+    grid-column: 2/3;
+    grid-row: 2/-1;
+}
+
+.subtitle {
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.subtitle:nth-of-type(1) {
+    background-color: #FBB616;
+}
+
+.subtitle:nth-of-type(2) {
+    background-color: #ED8B00;
+}
+
+.general-reqs {
+    grid-column: 1/-1;
+    grid-row: 3/-1;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.general-reqs::-webkit-scrollbar {
+    width: 1px;
+    /* Ancho del scrollbar vertical */
+    border-radius: 40px;
+    /* Borde redondeado */
+}
+
+.requirement-item {
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 5px;
+}
+
+.requirement-item {
+    background-color: #EFEFEF;
+}
+
+.requirement-item:nth-child(even) {
+    background-color: #E2E2E2;
+}
+
+.requirement-title {
+    color: #EFEFEF;
+    font-size: 1.1rem;
+}
+
+.requirement-item2 {
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 5px;
+
+}
+
+.requirement-item2 {
+    background-color: #E2E2E2;
+}
+
+.requirement-item2:nth-child(even) {
+    background-color: #EFEFEF;
+}
+
+.title-req-col{
+
+    margin-left: 15px;
+    margin-right: 15px;
+    color: #7F7F7F;
+    font-weight: 600;
+
+}
+
+.sub-req-col{
+
+    margin-left: 15px;
+    margin-right: 15px;
+    color: #7F7F7F;
+    font-weight: 400;
+    text-align: justify;
+
+}
+
+.reqPatron{
+
+    width: 85%;
+    height: 70%;
+    align-self: center;
+    border-radius: 10px;
+    border-style: none;
+    color: #7F7F7F;
+    font-family: "Inter";
+    font-size: 100%;
+    padding: 10px;
+    text-align: justify;
+
+}
+
+.div-button-guardar{
+
+    width: 80vw;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.button-guardar{
+
+    background-color: #004B87;
+    border-style: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 7px;
+    color: white;
+    transition-duration: 0.2s;
+    font-weight: 400;
+    font-size: 100%;
+
+}
+
+.button-guardar:hover{
+
+    cursor: pointer;
+    background-color: #02345e;
+    transition-duration: 0.2s;
+
+}

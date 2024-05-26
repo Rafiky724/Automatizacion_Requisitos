@@ -1,9 +1,96 @@
-{% extends './layout.html' %} 
+{% extends './layout.html' %}
 
-{% block title %} 
-    {{data.titulo}} 
+{% block title %}
+{{data.titulo}}
 {% endblock %}
 
-{% block body %} 
+{% block body %}
+
+<div class="container-req">
+
+    <div class="req-back">
+
+        <div class="req-square-container">
+
+
+            <p class="text-add-req">Agregar Requisitos</p>
+
+
+            <!-- REQ CONTAINER -->
+            <div class="form-container">
+
+                <form id="requirementForm">
+                    <div class="form-group">
+                        <label for="title">Título:</label>
+                        <input type="text" class="text-input text-input-re" id="title" name="title" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Detalle:</label>
+                        <textarea id="description" class="text-input textarea-req" name="description" required></textarea>
+                    </div>
+
+                    <div class="bottom-req">
+
+                        <div class="radio-requirments">
+                            <label>
+                                <input type="radio" name="requirementType" value="Funcional" id="Funcional" />
+                                Requisito Funcional
+                            </label>
+                            <label>
+                                <input type="radio" name="requirementType" value="No-Funcional" id="No-Funcional" />
+                                Requisito No Funcional
+                            </label>
+                        </div>
+
+                        <button type="button" class="RequirementBtn" id="addRequirementBtn">
+                            Agregar
+                        </button>
+
+                    </div>
+
+                </form>
+            </div>
+            <!-- REQ AGREGADOS -->
+            <div class="req-agregados">
+                <p class="text-add-req">Requisitos agregados</p>
+                <div id="requirementsList">
+
+                    <div class="container-req-add">
+
+                        <p class="text-titulo-req">R1: Cualquier cosa</p>
+                        <p class="text-det-req">Y yo estoy aquí, borracho y solo. Y mi corazón idiota, siempre brillará...</p>
+
+                    </div>
+                    <div class="container-req-add">
+
+                        <p class="text-titulo-req">R1: Cualquier cosa</p>
+                        <p class="text-det-req">Y yo estoy aquí, borracho y solo. Y mi corazón idiota, siempre brillará...</p>
+
+                    </div>
+                    <div class="container-req-add">
+
+                        <p class="text-titulo-req">R1: Cualquier cosa</p>
+                        <p class="text-det-req">Y yo estoy aquí, borracho y solo. Y mi corazón idiota, siempre brillará...</p>
+
+                    </div>
+                    
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="div-button">
+            <button class="btn-next">
+                Guardar
+            </button>
+        </div>
+
+    </div>
+
+    <figure class="card-figure2">
+        <img class="card-img" src="{{ url_for('static', filename=data['navegacion']['robot']) }}" alt="robot-image" />
+    </figure>
+</div>
 
 {% endblock %}
