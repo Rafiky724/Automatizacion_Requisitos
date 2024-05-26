@@ -2,7 +2,7 @@
   <nav class="nav-bar">
     <div class="navBar-div">
       <figure class="navBar-div-image">
-        <a href="/"
+        <a href="{{ url_for('index') }}"
           ><img
             src="{{ url_for('static', filename=data['navegacion']['logo']) }}"
             alt="Logo ACME"
@@ -12,10 +12,10 @@
     </div>
     <div class="navBar-list-container">
       <ul class="navBar-list">
-        <li><a href="/patron">{{data['navegacion']['patron']}}</a></li>
-        <li><a href="/asignar">{{data['navegacion']['asignar']}}</a></li>
+        <li><a href="{{ url_for('patron') }}">{{data['navegacion']['patron']}}</a></li>
+        <li><a href="{{ url_for('asignar') }}">{{data['navegacion']['asignar']}}</a></li>
         <li class="puntica">
-          <a href="/depuracion">{{data['navegacion']['depuracion']}}</a>
+          <a href="{{ url_for('depuracion') }}">{{data['navegacion']['depuracion']}}</a>
         </li>
       </ul>
     </div>
