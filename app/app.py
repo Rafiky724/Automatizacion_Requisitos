@@ -66,10 +66,11 @@ def asignar():
             'logo': 'img/Logo.png',
             'patron': 'Patrón',
             'asignar': 'Asignar',
-            'depuracion': 'Depuración'
+            'depuracion': 'Depuración',
+            'robot': 'img/messi.jpg'
         },        
     }
-    return render_template('patron.html', data = data)
+    return render_template('validadores.html', data = data)
 
 @app.route('/depuracion')
 def depuracion():
