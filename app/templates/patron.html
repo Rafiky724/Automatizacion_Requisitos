@@ -25,7 +25,7 @@
                         <input type="text" class="text-input text-input-re" id="title" name="title" required />
                     </div>
                     <div class="form-group">
-                        <label for="description">Detalle:</label>
+                        <label for="description">Descripción:</label>
                         <textarea id="description" class="text-input textarea-req" name="description" required></textarea>
                     </div>
 
@@ -55,25 +55,13 @@
                 <p class="text-add-req">Requisitos agregados</p>
                 <div id="requirementsList">
 
+                    <!-- Plantilla para cada requisito agregado -->
                     <div class="container-req-add">
 
-                        <p class="text-titulo-req">R1: Cualquier cosa</p>
-                        <p class="text-det-req">Y yo estoy aquí, borracho y solo. Y mi corazón idiota, siempre brillará...</p>
+                        <p class="text-titulo-req">RF1: Titulo Requisito</p>
+                        <p class="text-det-req">Descripción requisito</p>
 
                     </div>
-                    <div class="container-req-add">
-
-                        <p class="text-titulo-req">R1: Cualquier cosa</p>
-                        <p class="text-det-req">Y yo estoy aquí, borracho y solo. Y mi corazón idiota, siempre brillará...</p>
-
-                    </div>
-                    <div class="container-req-add">
-
-                        <p class="text-titulo-req">R1: Cualquier cosa</p>
-                        <p class="text-det-req">Y yo estoy aquí, borracho y solo. Y mi corazón idiota, siempre brillará...</p>
-
-                    </div>
-                    
 
                 </div>
             </div>
@@ -81,7 +69,7 @@
         </div>
 
         <div class="div-button">
-            <button class="btn-next">
+            <button id="boton-guardar-enviar" class="btn-next">
                 Guardar
             </button>
         </div>

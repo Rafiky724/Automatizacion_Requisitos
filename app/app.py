@@ -1,6 +1,9 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, request, jsonify
+#from openai import OpenAI
 
 app = Flask(__name__)
+
+
 
 # @app.before_request
 # def before_request():
@@ -30,8 +33,39 @@ def index():
     }
     return render_template('index.html', data=data) 
 
-@app.route('/patron')
+@app.route('/patron', methods=['GET', 'POST'])
 def patron():
+
+    if request.method == 'POST':
+
+        #return redirect(url_for('patron2'))
+        requisito = request.json['requisito']
+
+        print(f"Requisito recibido: {requisito}")
+        
+        """
+        try:
+            
+            stream = client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": "Di 'si' en inglés solamente"}],
+                stream=True,
+            )
+
+            answer = ""
+            for chunk in stream:
+                if chunk.choices[0].delta.content is not None:
+                    answer += chunk.choices[0].delta.content
+
+            print(f"Respuesta de chat: {answer}")
+
+        except Exception as e:
+            print(f"Error: {e}")"""
+        
+        return jsonify({'mensaje': 'Requisito procesado exitosamente'})
+
+
+
     data = {
         'titulo':'Inicio',
         'navegacion': {
