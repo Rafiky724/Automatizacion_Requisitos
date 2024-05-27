@@ -1,0 +1,39 @@
+.container-req-select{
+
+    background-color: #EFEFEF;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    color: #7F7F7F;
+    transition-duration: 0.2s;
+
+}
+
+.container-req-select:hover{
+
+    cursor: pointer;
+    background-color: #41BF91;
+    color: white!important;
+    transition-duration: 0.2s;
+
+}
+
+.text-select-req{
+
+    color: #7F7F7F;
+    font-weight: 400;
+    margin-bottom: 15px;
+
+}
+
+.text-titulo-req2{
+
+    font-weight: 600;
+
+}
+
+.text-det-req2{
+
+    font-weight: 400;
+
+}

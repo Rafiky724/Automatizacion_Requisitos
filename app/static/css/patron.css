@@ -188,6 +188,29 @@
 
 }
 
+.btn-delete{
+
+    background-color: #004B87;
+    border-style: none;
+    height: 35px;
+    width: 80px;
+    border-radius: 7px;
+    color: white;
+    transition-duration: 0.2s;
+    font-weight: 400;
+    font-size: 90%;
+    margin-right: 10px;
+
+}
+
+.btn-delete:hover{
+
+    cursor: pointer;
+    background-color: #001322;
+    transition-duration: 0.2s;
+
+}
+
 .card-figure2{
 
     width: 30vw;

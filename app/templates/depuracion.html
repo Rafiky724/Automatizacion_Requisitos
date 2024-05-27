@@ -1,0 +1,84 @@
+{% extends './layout.html' %}
+
+{% block title %}
+{{data.titulo}}
+{% endblock %}
+
+{% block body %}
+
+<div class="container-req">
+
+    <div class="req-back">
+
+        <div class="req-square-container">
+
+            <p class="text-add-req">Control de cambios</p>
+
+            <!-- REQ CONTAINER -->
+            <div class="form-container">
+
+                <div>
+                    <p class="text-select-req">Seleccione el requisito a modificar</p>
+
+                    <div>
+
+                        <div class="container-req-select">
+
+                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
+                            <p class="text-det-req2">Descripción requisito</p>
+    
+                        </div>
+
+                        <div class="container-req-select">
+
+                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
+                            <p class="text-det-req2">Descripción requisito</p>
+    
+                        </div>
+
+                        <div class="container-req-select">
+
+                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
+                            <p class="text-det-req2">Descripción requisito</p>
+    
+                        </div>
+
+                        <div class="container-req-select">
+
+                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
+                            <p class="text-det-req2">Descripción requisito</p>
+    
+                        </div>
+
+                        <div class="container-req-select">
+
+                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
+                            <p class="text-det-req2">Descripción requisito</p>
+    
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="div-button">
+            <button class="btn-delete">
+                Eliminar
+            </button>
+            <button class="btn-next">
+                Editar
+            </button>
+        </div>
+
+    </div>
+
+    <figure class="card-figure2">
+        <img class="card-img" src="{{ url_for('static', filename=data['navegacion']['robot']) }}" alt="robot-image" />
+    </figure>
+</div>
+
+
+{% endblock %}
