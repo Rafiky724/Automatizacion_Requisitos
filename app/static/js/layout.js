@@ -18,9 +18,10 @@ document.getElementById('addRequirementBtn').addEventListener('click', function 
     if (requirementType.value === 'Funcional') {
         functionalCount++;
         identifier = 'RF' + functionalCount;
+        
 
         // Guardar el requisito funcional en el arreglo
-        functionalRequirements.push({ title, description });
+        functionalRequirements.push({ title, description, identifier });
     } else {
         nonFunctionalCount++;
         identifier = 'RNF' + nonFunctionalCount;
@@ -60,47 +61,22 @@ function mostrarRequisitosFuncionales() {
         console.log(element['description']);
     });*/
 
-    console.log(functionalRequirements[0]['description']);
-
 }
 
 //ENVIAR REQUISITO AL PYTHON
 
 document.getElementById("boton-guardar-enviar").addEventListener("click", function() {
 
-    var requisitos = [];
-
-    functionalRequirements.forEach(element => {
-        requisitos.push(element['description']);
-    });
-
-    
-    requisitos.forEach(requisito => {
-        fetch('/patron', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ requisito: requisito }),
-        })
-        .then(response => response.json())
-        /*
-        .then(data => {
-            alert(data.mensaje);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });*/
-    });
-
-    /*
     fetch('/patron', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ requisito: requisitos[0] }),
+        body: JSON.stringify(functionalRequirements),
     })
     .then(response => response.json())
- */
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+    
 });
+

@@ -1,0 +1,70 @@
+{% extends './layout.html' %}
+
+{% block title %}
+{{data.titulo}}
+{% endblock %}
+
+{% block body %}
+
+<div class="container-req">
+
+    <div class="req-back2">
+
+        <div class="req-square-container">
+
+            <p class="text-add-req">Control de cambios</p>
+
+            <!-- REQ CONTAINER -->
+            <div class="form-container container-pad">
+
+                <div>
+                    <p class="titles-changes">Modificaciones</p>
+
+                    <div class="container-changes">
+
+                        <div class="container-req-change">
+
+                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
+                            <p class="text-det-req2">Descripción requisito</p>
+    
+                        </div>
+                        
+                        <img class="card-icon-arrow" src="{{ url_for('static', filename=data['navegacion']['flecha']) }}" alt="arrow" />
+
+                        <div class="container-req-change2">
+
+                            <p class="text-titulo-req2">RF1: Titulo Requisito modificado</p>
+                            <p class="text-det-req2">Descripción requisito modificado</p>
+    
+                        </div>
+
+                    </div>
+
+                    <div class="container-determitation">
+
+                        <div class="container-impact-cost">
+
+                            <p class="titles-changes">Impacto</p>
+                            <p class="info-ia-generate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi facilis numquam libero, odit obcaecati vel eum, quo consequuntur neque voluptas blanditiis ab cumque? Aliquid, eveniet! Blanditiis libero repellat eaque maiores.</p>
+
+
+                        </div>
+
+                        <div class="container-impact-cost">
+
+                            <p class="titles-changes">Costo</p>
+                            <p class="info-ia-generate">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem totam et, laborum illum voluptatem consectetur atque repudiandae, impedit id nisi cum nesciunt blanditiis rerum eum quod. Cum vero totam beatae.</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

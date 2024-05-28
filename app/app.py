@@ -1,9 +1,13 @@
 from flask import Flask, render_template, request, url_for, redirect, request, jsonify
 #from openai import OpenAI
+import google.generativeai as genai
 
 app = Flask(__name__)
 
 
+genai.configure(api_key="AIzaSyC4eJT78mDj173EDfxw_IHkpS6yo-AfuTw")
+# The Gemini 1.5 models are versatile and work with both text-only and multimodal prompts
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 # @app.before_request
 # def before_request():
@@ -39,12 +43,14 @@ def patron():
     if request.method == 'POST':
 
         #return redirect(url_for('patron2'))
-        requisito = request.json['requisito']
+        requisitos = request.json
 
-        print(f"Requisito recibido: {requisito}")
+        for requisito in requisitos:
+            print(f"Requisito recibido: {requisito}")
         
         """
         try:
+            
             
             stream = client.chat.completions.create(
                 model="gpt-3.5-turbo",
@@ -62,7 +68,7 @@ def patron():
         except Exception as e:
             print(f"Error: {e}")"""
         
-        return jsonify({'mensaje': 'Requisito procesado exitosamente'})
+        return jsonify({'status': 'success', 'data': requisitos}), 200
 
 
 
@@ -119,6 +125,20 @@ def depuracion():
         },        
     }
     return render_template('depuracion.html', data = data)
+
+@app.route('/depuracion2')
+def depuracion2():
+    data = {
+        'titulo':'Inicio',
+        'navegacion': {
+            'logo': 'img/Logo.png',
+            'patron': 'Patrón',
+            'asignar': 'Asignar',
+            'depuracion': 'Depuración',
+            'flecha': 'img/Flecha.png'
+        },        
+    }
+    return render_template('depuracion2.html', data = data)
 
 # @app.route('/contacto/<nombre>/<int:edad>')
 # def contacto(nombre, edad):
