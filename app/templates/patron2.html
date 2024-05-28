@@ -16,69 +16,30 @@
             <div class="added-reques">
                 <div id="requirementsList">
                     
+                    {% for requisito in requisitos %}
+
+                    <div class="requirement-item">
+
+                        <h3 class="title-req-col">{{ requisito['identifier'] }}: {{ requisito['title'] }}</h3>
+                        <p class="sub-req-col">{{ requisito['description'] }}</p>
+
+                    </div>
+
+                    {% endfor %}
                     
-                    <div class="requirement-item">
-
-                        <h3 class="title-req-col">RF1: Cualquier cosa</h3>
-                        <p class="sub-req-col">La interfaz de usuario debe ser completamente intuitiva
-                            para los gatos.</p>
-
-                    </div>
-
-                    <div class="requirement-item">
-
-                        <h3 class="title-req-col">RF1: Cualquier cosa</h3>
-                        <p class="sub-req-col">La interfaz de usuario debe ser completamente intuitiva
-                            para los gatos.</p>
-
-                    </div>
-
-                    <div class="requirement-item">
-
-                        <h3 class="title-req-col">RF1: Cualquier cosa</h3>
-                        <p class="sub-req-col">La interfaz de usuario debe ser completamente intuitiva
-                            para los gatos.</p>
-
-                    </div>
-
-                    <div class="requirement-item">
-
-                        <h3 class="title-req-col">RF1: Cualquier cosa</h3>
-                        <p class="sub-req-col">La interfaz de usuario debe ser completamente intuitiva
-                            para los gatos.</p>
-
-                    </div>
-
                 </div>
             </div>
             <div class="generated-reques">
 
                 <div id="requirementsList2">
 
+                    {% for requisito in requisitos %}
                     <div class="requirement-item2">
 
-                        <textarea name="patron" class="reqPatron" id="">Requisito con patrón de sintaxis</textarea>
+                        <textarea name="patron" class="reqPatron" id="{{ requisito['identifier'] }}">{{ requisito['patron'] }}</textarea>
 
                     </div>
-
-                    <div class="requirement-item2">
-
-                        <textarea name="patron" class="reqPatron" id="">Requisito con patrón de sintaxis</textarea>
-
-                    </div>
-
-                    <div class="requirement-item2">
-
-                        <textarea name="patron" class="reqPatron" id="">Requisito con patrón de sintaxis</textarea>
-
-                    </div>
-
-                    <div class="requirement-item2">
-
-                        <textarea name="patron" class="reqPatron" id="">Requisito con patrón de sintaxis</textarea>
-
-                    </div>
-
+                    {% endfor %}
                 </div>
 
             </div>
@@ -90,13 +51,6 @@
         <button class="button-guardar">Guardar</button>
 
 
-    </div>
-
-    <div>
-
-        {% for requisito in requisitos %}
-        <li>{{ requisito }}</li>
-        {% endfor %}
     </div>
     
 </div>

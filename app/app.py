@@ -82,7 +82,7 @@ Requisito:
 {requisito['description']}
 
 """
-            """
+            
             try:
                 response = model.generate_content(promt)
                 print(f"Resultado: {response.text}")
@@ -90,7 +90,7 @@ Requisito:
                 requisito['patron'] = response.text
 
             except Exception as e:
-                print(f"Error: {e}")"""
+                print(f"Error: {e}")
         
         #print(requisitos)
         requisitos_json = json.dumps(requisitos)
@@ -108,7 +108,6 @@ def patron2():
     requisitos_encoded = request.args.get('requisitos')
     requisitos_json = urllib.parse.unquote(requisitos_encoded)
     requisitos = json.loads(requisitos_json)
-    print(f"FUNCIONAA: {requisitos}")
 
     data = {
         'titulo':'Inicio',
