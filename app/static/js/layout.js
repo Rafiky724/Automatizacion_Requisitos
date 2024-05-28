@@ -18,7 +18,7 @@ document.getElementById('addRequirementBtn').addEventListener('click', function 
     if (requirementType.value === 'Funcional') {
         functionalCount++;
         identifier = 'RF' + functionalCount;
-        
+
 
         // Guardar el requisito funcional en el arreglo
         functionalRequirements.push({ title, description, identifier });
@@ -65,7 +65,7 @@ function mostrarRequisitosFuncionales() {
 
 //ENVIAR REQUISITO AL PYTHON
 
-document.getElementById("boton-guardar-enviar").addEventListener("click", function() {
+document.getElementById("boton-guardar-enviar").addEventListener("click", function () {
 
     fetch('/patron', {
         method: 'POST',
@@ -74,9 +74,15 @@ document.getElementById("boton-guardar-enviar").addEventListener("click", functi
         },
         body: JSON.stringify(functionalRequirements),
     })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
-    
+        .then(response => response.json())
+        .then(data => {
+            if (data.redirect) {
+                window.location.href = data.redirect;
+            } else {
+                console.error('No redirection URL found');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+
 });
 
