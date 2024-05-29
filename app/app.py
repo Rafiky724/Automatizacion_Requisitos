@@ -3,13 +3,21 @@ from flask import Flask, render_template, request, url_for, redirect, request, j
 import google.generativeai as genai
 import json
 import urllib.parse
+import os
 
 app = Flask(__name__)
 
+requisitosLast = []
 
 
 # The Gemini 1.5 models are versatile and work with both text-only and multimodal prompts
 model = genai.GenerativeModel('gemini-1.5-flash')
+
+
+@app.route('/obtener_requisitos', methods=['GET'])
+def obtener_requisitos(): # Aquí deberías obtener tus requisitos
+    return jsonify(requisitos=requisitosLast)
+
 
 # @app.before_request
 # def before_request():
@@ -55,6 +63,8 @@ def patron():
 
     if request.method == 'POST':
 
+        requisitosLast.clear()
+
         #return redirect(url_for('patron2'))
         requisitos = request.json
 
@@ -94,20 +104,53 @@ Requisito:
         
         #print(requisitos)
         requisitos_json = json.dumps(requisitos)
-        requisitos_encoded = urllib.parse.quote(requisitos_json)
-        redirect_url = url_for('patron2', requisitos=requisitos_encoded)
+        #requisitos_encoded = urllib.parse.quote(requisitos_json)
+        redirect_url = url_for('patron2', requisitos=requisitos_json)
         return jsonify({'redirect': redirect_url})
         #return jsonify({'status': 'success', 'data': requisitos}), 200
 
 
     return render_template('patron.html', data = data)
 
-@app.route('/patron2', methods = ['GET'])
+@app.route('/patron2', methods = ['GET', 'POST'])
 def patron2():
 
+    if request.method == 'POST':
+        data = request.json# Obtener los datos enviados en la solicitud POST
+        print(data)
+
+        from controllers.requisito_controller import add_requisito
+
+        if isinstance(data, list):  # Verifica si data es una lista
+            results = []
+            status_codes = []
+            for item in data:
+                result, status_code = add_requisito(item)
+                if status_code == 201:  # Solo agregamos resultados válidos
+                    results.append(result)
+                status_codes.append(status_code)
+            # Devuelve todos los resultados y el status code más común
+            return jsonify(results), max(set(status_codes), key=status_codes.count)
+        else:  # Si no es una lista, procesa normalmente
+            result, status_code = add_requisito(data)
+            return jsonify(result), status_code
+
+        #return jsonify({'status': 'success', 'data': requisitosP}), 200
+
+    requisitos_json = request.args.get('requisitos')
+    
+    requisitos = json.loads(requisitos_json)
+
+    for requisito in requisitos:
+        if requisito not in requisitosLast:
+            requisitosLast.append(requisito)
+
+    
+
+    """
     requisitos_encoded = request.args.get('requisitos')
     requisitos_json = urllib.parse.unquote(requisitos_encoded)
-    requisitos = json.loads(requisitos_json)
+    requisitos = json.loads(requisitos_json)"""
 
     data = {
         'titulo':'Inicio',

@@ -15,7 +15,7 @@
         <div class="general-reqs">
             <div class="added-reques">
                 <div id="requirementsList">
-                    
+
                     {% for requisito in requisitos %}
 
                     <div class="requirement-item">
@@ -26,7 +26,7 @@
                     </div>
 
                     {% endfor %}
-                    
+
                 </div>
             </div>
             <div class="generated-reques">
@@ -36,7 +36,8 @@
                     {% for requisito in requisitos %}
                     <div class="requirement-item2">
 
-                        <textarea name="patron" class="reqPatron" id="{{ requisito['identifier'] }}">{{ requisito['patron'] }}</textarea>
+                        <textarea name="patron" class="reqPatron"
+                            id="{{ requisito['identifier'] }}">{{ requisito['patron'] }}</textarea>
 
                     </div>
                     {% endfor %}
@@ -48,12 +49,11 @@
 
     <div class="div-button-guardar">
 
-        <button class="button-guardar">Guardar</button>
-
-
+        <button id="boton-guardar-req" class="button-guardar">Guardar</button>
     </div>
-    
+
 </div>
 
+<script src="{{ url_for('static', filename='js/patron.js') }}" type="module"></script>
 
 {% endblock %}
