@@ -3,7 +3,7 @@ from dataBase.connection import db
 from models.requisito import Requisito
 from pydantic import ValidationError
 
-requisitos_collection = db['requisitos']
+requisitos_collection = db['requisitos2']
 
 def add_requisito(data):
     #print(f"Valor recibido para id_validador: {data.get('id_validador')}")
@@ -15,4 +15,4 @@ def add_requisito(data):
     requisito_dict = requisito.dict()
     #Inserta la info a la BD
     result = requisitos_collection.insert_one(requisito_dict)
-    return jsonify({'inserted_id': str(result.inserted_id)}), 201
+    return {'inserted_id': str(result.inserted_id)}, 201

@@ -11,7 +11,7 @@ class Requisito(BaseModel):
         arbitrary_types_allowed = True"""
 
 class Requisito(BaseModel):
-    descripcion: str
-    id_validador: str
+    description: str
+    identifier: str
     patron: str
-    nombre: str
+    title: str

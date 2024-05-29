@@ -38,7 +38,7 @@ document.getElementById("boton-guardar-req").addEventListener("click", function 
         .then(response => response.json())
         .then(data => {
             if (data) {
-                console.log(`Funciona: ${data}`);
+                alert("Información guardada");
             } else {
                 console.error('No redirection URL found');
             }

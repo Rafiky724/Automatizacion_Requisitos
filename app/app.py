@@ -95,7 +95,7 @@ Requisito:
             
             try:
                 response = model.generate_content(promt)
-                print(f"Resultado: {response.text}")
+                #print(f"Resultado: {response.text}")
 
                 requisito['patron'] = response.text
 
@@ -117,7 +117,7 @@ def patron2():
 
     if request.method == 'POST':
         data = request.json# Obtener los datos enviados en la solicitud POST
-        print(data)
+        #print(data)
 
         from controllers.requisito_controller import add_requisito
 
