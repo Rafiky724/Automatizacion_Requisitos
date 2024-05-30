@@ -6,7 +6,7 @@ import google.generativeai as genai
 import json
 import urllib.parse
 import os
-genai.configure(api_key="AIzaSyC4eJT78mDj173EDfxw_IHkpS6yo-AfuTw")
+
 app = Flask(__name__)
 
 requisitosLast = []
@@ -179,19 +179,55 @@ def asignar():
         }        
     }
     requisitosPrueba = get_requisitos()
-    print(requisitosPrueba)
 
     return render_template('validadores.html', data = data, requisitosPrueba= requisitosPrueba)
 
 @app.route('/asignaciones_validadores')
 def validadores_asignados():
+
+    validador_asignado = []
+    indice = 1
+
     requisitos_validadores = get_requisitos()
     validadores_listado = get_validators()
     
+    #print(validadores_listado)
+
+    promt = "Eres un IA encargada de automatizar el proceso de asignar un validador para un requisito. Quiero que me digas según los siguientes validadores, cuál es la mejor opción para encargarse de la validación del siguiente requisito:\nVALIDADORES\n"
+
+    for validador in validadores_listado:
+        promt += f"Validador {indice}: " + validador['nombre'] + "\n"
+        promt += f"ID: {validador['id']+"\n"}"
+        promt += f"Habilidades: " + validador['habilidades'] + "\n"
+        indice = indice+1
+
     for requisito in requisitos_validadores:
-        print(requisito['patron'])
-        
-    return requisitos_validadores
+        promtFinal = promt
+        promtFinal += f"REQUISITO:\n{requisito['patron']}\nSOLO DEBES RETORNARME EL ID EXACTO DEL VALIDADOR QUE SELECCIONES, NADA MÁS"
+
+        try:
+            response = model.generate_content(promtFinal)
+            print(f"Resultado: {response.text}")
+            validador_asignado.append(response.text)
+
+        except Exception as e:
+            print(f"Error: {e}")
+
+    validador_asignado = [nombre.strip() for nombre in validador_asignado]
+    validadores_finales = []
+
+    for validador in validador_asignado:
+        for val in validadores_listado:
+            if val['id'] == validador:
+
+                dic = {}
+                dic['nombre'] = val['nombre']
+                dic['rol'] = val['rol']
+                dic['id'] = val['id']
+
+                validadores_finales.append(dic)
+    
+    return jsonify(validadoresAsignados=validadores_finales)
 
 
 @app.route('/validadores',  methods = ['GET', 'POST'])
