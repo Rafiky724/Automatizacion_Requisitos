@@ -15,117 +15,38 @@
         <div class="general-reqs">
             <div class="added-reques">
                 <div id="requirementsList">
-                    
-                    
+                    {% for requisito in requisitosPrueba %}
                     <div class="requirement-item">
 
-                        <h3 class="title-req-col">RF1: Nombre requisito</h3>
-                        <br>
-                        <p class="title-req-col">Descripción</p>
-                        <P class="sub-req-col">La interfaz de usuario debe ser completamente intuitiva para los gatos.</P>
+                        <h3 class="title-req-col">{{ requisito['identifier'] }}: {{ requisito['title'] }}</h3>
+                        <p class="sub-req-col">{{ requisito['description'] }}</p>
 
                     </div>
 
-                    <div class="requirement-item">
-
-                        <h3 class="title-req-col">RF1: Nombre requisito</h3>
-                        <br>
-                        <p class="title-req-col">Descripción</p>
-                        <P class="sub-req-col">La interfaz de usuario debe ser completamente intuitiva para los gatos.</P>
-
-                    </div>
-
-                    <div class="requirement-item">
-
-                        <h3 class="title-req-col">RF1: Nombre requisito</h3>
-                        <br>
-                        <p class="title-req-col">Descripción</p>
-                        <P class="sub-req-col">La interfaz de usuario debe ser completamente intuitiva para los gatos.</P>
-
-                    </div>
-
-                    <div class="requirement-item">
-
-                        <h3 class="title-req-col">RF1: Nombre requisito</h3>
-                        <br>
-                        <p class="title-req-col">Descripción</p>
-                        <P class="sub-req-col">La interfaz de usuario debe ser completamente intuitiva para los gatos.</P>
-
-                    </div>
+                    {% endfor %}
 
                 </div>
             </div>
             <div class="generated-reques">
 
                 <div id="requirementsList2">
-
+                    {% for requisito in requisitosPrueba %}
                     <div class="requirement-item2">
+
 
                         <div class="validador-container">
 
-                            <img class="perfil-card" src="{{ url_for('static', filename=data['navegacion']['robot']) }}" alt="validador">
-
                             <div class="info-validador-container">
 
-                                <p class="text-name-val">Lionel Andrés Messi Cuccitini</p>
-                                <P class="text-prof-val">El mejor de todos los tiempos</P>
+                                <h3 class="title-req-col">{{ requisito['Nombre'] }}: {{ requisito['edad'] }}</h3>
+                                <p class="sub-req-col">{{ requisito['Habilidades blandas'] }}</p>
 
                             </div>
 
                         </div>
 
                     </div>
-
-                    <div class="requirement-item2">
-
-                        <div class="validador-container">
-
-                            <img class="perfil-card" src="{{ url_for('static', filename=data['navegacion']['robot']) }}" alt="validador">
-
-                            <div class="info-validador-container">
-
-                                <p class="text-name-val">Lionel Andrés Messi Cuccitini</p>
-                                <P class="text-prof-val">El mejor de todos los tiempos</P>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="requirement-item2">
-
-                        <div class="validador-container">
-
-                            <img class="perfil-card" src="{{ url_for('static', filename=data['navegacion']['robot']) }}" alt="validador">
-
-                            <div class="info-validador-container">
-
-                                <p class="text-name-val">Lionel Andrés Messi Cuccitini</p>
-                                <P class="text-prof-val">El mejor de todos los tiempos</P>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="requirement-item2">
-
-                        <div class="validador-container">
-
-                            <img class="perfil-card" src="{{ url_for('static', filename=data['navegacion']['robot']) }}" alt="validador">
-
-                            <div class="info-validador-container">
-
-                                <p class="text-name-val">Lionel Andrés Messi Cuccitini</p>
-                                <P class="text-prof-val">El mejor de todos los tiempos</P>
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                    {% endfor %}
 
                 </div>
 
@@ -136,10 +57,15 @@
     <div class="div-button-guardar">
 
         <button class="button-editar">Editar habilidades</button>
-        <button class="button-asignar">Asignar validador</button>
+        <button id="asignar-validador" class="button-asignar">Asignar validador</button>
 
-    </div>    
-    
+    </div>
+    <script
+      src="{{ url_for('static', filename='js/asignador.js') }}"
+      type="module"
+    ></script>
+
+
 </div>
 
 

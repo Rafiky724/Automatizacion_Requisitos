@@ -16,3 +16,12 @@ def add_requisito(data):
     #Inserta la info a la BD
     result = requisitos_collection.insert_one(requisito_dict)
     return {'inserted_id': str(result.inserted_id)}, 201
+
+def get_requisitos():
+    requisitos = requisitos_collection.find()
+    requisitos_list = []
+    for requisito in requisitos:
+        requisito['_id'] = str(requisito['_id'])  # Convertir ObjectId a string
+        requisitos_list.append(requisito)
+    return requisitos_list
+

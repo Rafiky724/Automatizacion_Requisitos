@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request, url_for, redirect, request, jsonify
+from controllers.requisito_controller import get_requisitos
+from controllers.validators_controller import get_validators
 #from openai import OpenAI
 import google.generativeai as genai
 import json
 import urllib.parse
 import os
-
+genai.configure(api_key="AIzaSyC4eJT78mDj173EDfxw_IHkpS6yo-AfuTw")
 app = Flask(__name__)
 
 requisitosLast = []
@@ -174,11 +176,40 @@ def asignar():
             'asignar': 'Asignar',
             'depuracion': 'Depuración',
             'robot': 'img/messi.jpg'
-        },        
+        }        
     }
-    return render_template('validadores.html', data = data)
+    requisitosPrueba = get_requisitos()
+    print(requisitosPrueba)
 
-@app.route('/depuracion')
+    return render_template('validadores.html', data = data, requisitosPrueba= requisitosPrueba)
+
+@app.route('/asignaciones_validadores')
+def validadores_asignados():
+    requisitos_validadores = get_requisitos()
+    validadores_listado = get_validators()
+    
+    for requisito in requisitos_validadores:
+        print(requisito['patron'])
+        
+    return requisitos_validadores
+
+
+@app.route('/validadores',  methods = ['GET', 'POST'])
+def add_validators():
+    
+    if request.method == 'POST':
+        data = request.json# Obtener los datos enviados en la solicitud POST
+        #print(data)
+
+        from controllers.validators_controller import validator_add
+        # Si no es una lista, procesa normalmente
+        result, status_code = validator_add(data)
+        return jsonify(result), status_code
+    if request.method == 'GET':
+        validadores = get_validators()
+        return jsonify(validadores=validadores)
+
+@app.route('/depuracion') 
 def depuracion():
     data = {
         'titulo':'Inicio',
