@@ -39,10 +39,10 @@
         </div>
 
         <div class="div-button">
-            <button class="btn-delete">
+            <button id="boton-eliminar-req" class="btn-delete">
                 Eliminar
             </button>
-            <button class="btn-next">
+            <button id="boton-editar-req" class="btn-next">
                 Editar
             </button>
         </div>
@@ -54,5 +54,51 @@
     </figure>
 </div>
 
+<section class="modal-depuracion">
+
+    <div class="modal-container">
+
+        <p class="text-delete-req">Eliminar requisito</p>
+        <p class="text-select-req">¿Estas seguro de que deseas eliminar este requisito?</p>
+        <div class="container-req-select2">
+
+            <p class="text-titulo-req2">RF1:</p>
+            <p>La interfaz de usuario debe ser completamente intuitiva para gatos</p>
+
+        </div>
+
+        <div class="div-button">
+
+            <button id="btn-close-modal" class="btn-delete">Cancelar</button>
+            <button class="btn-next">Eliminar</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="modal-depuracion2">
+
+    <div class="modal-container">
+
+        <p class="text-delete-req">Editar requisito</p>
+        <textarea class="text-area-edit" name="requisitoEditar" id="">La interfaz de usuario debe ser completamente intuitiva para gatos</textarea>
+
+        <div class="div-button">
+
+            <button id="btn-close-modal2" class="btn-delete">Cancelar</button>
+            <button class="btn-next">Guardar</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script
+      src="{{ url_for('static', filename='js/depuracion.js') }}"
+      type="module"
+    ></script>
 
 {% endblock %}
