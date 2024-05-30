@@ -247,6 +247,9 @@ def add_validators():
 
 @app.route('/depuracion') 
 def depuracion():
+
+    requisitos_dep = get_requisitos()
+
     data = {
         'titulo':'Inicio',
         'navegacion': {
@@ -257,7 +260,7 @@ def depuracion():
             'robot': 'img/depuracion.jpg'
         },        
     }
-    return render_template('depuracion.html', data = data)
+    return render_template('depuracion.html', data = data, requisitos = requisitos_dep)
 
 @app.route('/depuracion2')
 def depuracion2():

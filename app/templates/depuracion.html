@@ -21,41 +21,15 @@
                     <p class="text-select-req">Seleccione el requisito a modificar</p>
 
                     <div>
-
+                        
+                        {% for requisito in requisitos %}
                         <div class="container-req-select">
 
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
+                            <p class="text-titulo-req2">{{ requisito['identifier'] }} {{ requisito['title'] }}</p>
+                            <p class="text-det-req2">{{ requisito['description'] }}</p>
     
                         </div>
-
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
-
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
-
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
-
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
+                        {% endfor %}
 
                     </div>
 
