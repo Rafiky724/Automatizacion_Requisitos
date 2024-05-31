@@ -1,16 +1,16 @@
 from flask import Flask, render_template, request, url_for, redirect, request, jsonify
-from controllers.requisito_controller import get_requisitos, add_requisito, update_requisito, delete_requisito
+from controllers.requisito_controller import get_requisitos, add_requisito, update_requisito, delete_requisito, delete_all
 from controllers.validators_controller import get_validators
 #from openai import OpenAI
 import google.generativeai as genai
 import json
 import urllib.parse
 import os
+import requests
 
 app = Flask(__name__)
 
 requisitosLast = []
-
 
 # The Gemini 1.5 models are versatile and work with both text-only and multimodal prompts
 model = genai.GenerativeModel('gemini-1.5-flash')
@@ -35,6 +35,10 @@ def update_requisito_route(identifier):
 def delete_requisito_route(identifier):
     result, status_code = delete_requisito(identifier)
     return jsonify(result), status_code
+
+@app.route('/delete_all', methods=['POST'])
+def delete_all_req():
+    return delete_all()
 
 
 
@@ -293,6 +297,9 @@ def depuracion():
                 print(f"Error: {e}")
                 costo = "No se pudo calcular el impacto"
 
+
+            delete_requisito_route(data['requisito']['_id'])
+
             requisito_json = json.dumps(data['requisito'])
             
             requisito_despues = "Eliminado"
@@ -331,6 +338,16 @@ def depuracion():
                 print(f"Error: {e}")
                 costo = "No se pudo calcular el impacto"
             
+            new_data = {
+                'description': data['nuevaDescripcion'],
+                'identifier': data['requisito']['identifier'],
+                'patron': data['nuevoPatron'],
+                'title': data['nuevoTitulo']
+            }
+
+            url = f'http://localhost:5000/requisito/{data['requisito']['_id']}'
+            response = requests.put(url, json=new_data)
+
             requisito_json = json.dumps(data['requisito'])
             
             requisito_despues_ = {'nuevoTitulo': data['nuevoTitulo'], 'nuevaDescripcion': data['nuevaDescripcion'], 'nuevoPatron': data['nuevoPatron']}
@@ -364,8 +381,12 @@ def depuracion2():
 
     # Decodifica el JSON del requisito a un diccionario
     requisito = json.loads(requisito_json)
-    requisito_despues = json.loads(requisito_despues_)
 
+    if requisito_despues_ != "Eliminado":
+        requisito_despues = json.loads(requisito_despues_)
+    else:
+        requisito_despues = requisito_despues_
+    
     data = {
         'titulo':'Inicio',
         'navegacion': {

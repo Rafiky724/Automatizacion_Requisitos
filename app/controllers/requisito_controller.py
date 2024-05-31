@@ -58,3 +58,13 @@ def delete_requisito(identifier):
         return result, 200
     else:
         return {'error': 'Requisito not found'}, 404
+    
+
+def delete_all():
+
+    try:
+        # Eliminar todos los documentos de la colección de requisitos
+        requisitos_collection.delete_many({})
+        return jsonify({'message': 'Todos los requisitos han sido eliminados'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

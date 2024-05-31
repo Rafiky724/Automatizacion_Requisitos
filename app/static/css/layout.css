@@ -98,3 +98,31 @@ a {
   text-align: center;
   margin: 10px;
 }
+
+.container-delete-all{
+
+  display: flex;
+  justify-content: center;
+
+}
+
+.delete-all{
+
+  background-color: red;
+  color: #eeeeee;
+  font-family: "Inter";
+  font-size: 100%;
+  border-style: none;
+  height: 30px;
+  padding: 3px;
+  transition-duration: 0.2s;
+
+}
+
+.delete-all:hover{
+
+  background-color: rgb(85, 0, 0);
+  cursor: pointer;
+  transition-duration: 0.2s;
+
+}
