@@ -255,4 +255,72 @@
 
 .selected {
     background-color: #41BF91;
+    color: white;
+}
+
+.form-container2{
+
+    background-color: white;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-radius: 10px;
+    padding: 20px;
+    overflow: auto;
+    max-height: 40vh;
+
+}
+
+.form-container2::-webkit-scrollbar{
+
+    opacity: 0;
+
+}
+
+.container-contexto{
+
+    background-color: #EFEFEF;
+    border-radius: 30px;
+    padding-top: 28px;
+    padding-left: 28px;
+    padding-right: 42px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.tex-area-contexto{
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border-style: none;
+    color: #7F7F7F;
+    font-family: "Inter";
+    padding: 10px;
+    font-size: 100%;
+
+}
+
+.labels-modal{
+
+    color: #7F7F7F;
+    margin-top: 20px;
+
+}
+
+.input-titule-req{
+
+    background-color: #EFEFEF;
+    font-size: 100%;
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    border-style: none;
+    color: #7F7F7F;
+    padding-left: 5px;
+    padding-right: 0px;
+    margin-top: 10px;
+
 }

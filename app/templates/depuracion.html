@@ -15,86 +15,34 @@
             <p class="text-add-req">Control de cambios</p>
 
             <!-- REQ CONTAINER -->
-            <div class="form-container">
+            <div class="form-container2">
 
                 <div>
                     <p class="text-select-req">Seleccione el requisito a modificar</p>
 
                     <div>
-                        
-                        {% for requisito in requisitos %}
-                        <div class="container-req-select">
 
-                            <p class="text-titulo-req2">{{ requisito['identifier'] }} {{ requisito['title'] }}</p>
+                        {% for requisito in requisitos %}
+                        <div id="{{ requisito['_id'] }}" class="container-req-select">
+
+                            <p class="text-titulo-req2">{{ requisito['identifier'] }}: {{ requisito['title'] }}</p>
                             <p class="text-det-req2">{{ requisito['description'] }}</p>
-    
+
                         </div>
                         {% endfor %}
-                        <div class="container-req-select">
 
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
-                        <div class="container-req-select">
-
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
-    
-                        </div>
 
                     </div>
 
                 </div>
             </div>
+
+        </div>
+
+        <div class="container-contexto">
+
+            <p class="text-select-req">Escriba una breve descripción del proyecto</p>
+            <textarea class="tex-area-contexto" name="" id="contexto-text"></textarea>
 
         </div>
 
@@ -118,19 +66,20 @@
 
     <div class="modal-container">
 
-        <p class="text-delete-req">Eliminar requisito</p>
-        <p class="text-select-req">¿Estas seguro de que deseas eliminar este requisito?</p>
-        <div class="container-req-select2">
+        <div id="info-modal">
+            <p class="text-delete-req">Eliminar requisito</p>
+            <p class="text-select-req">¿Estas seguro de que deseas eliminar este requisito?</p>
+            <div class="container-req-select2">
 
-            <p class="text-titulo-req2">RF1:</p>
-            <p>La interfaz de usuario debe ser completamente intuitiva para gatos</p>
+                <p class="text-titulo-req2">RF1:</p>
+                <p>La interfaz de usuario debe ser completamente intuitiva para gatos</p>
 
+            </div>
         </div>
-
         <div class="div-button">
 
             <button id="btn-close-modal" class="btn-delete">Cancelar</button>
-            <button class="btn-next">Eliminar</button>
+            <button id="eliminar-requisito" class="btn-next">Eliminar</button>
 
         </div>
 
@@ -142,13 +91,23 @@
 
     <div class="modal-container">
 
-        <p class="text-delete-req">Editar requisito</p>
-        <textarea class="text-area-edit" name="requisitoEditar" id="">La interfaz de usuario debe ser completamente intuitiva para gatos</textarea>
+        <div id="info-modal2">
+            <p class="text-delete-req">Editar requisito</p>
+            <p class="labels-modal">Título</p>
 
+            <input id="nuevo-titulo" class="input-titule-req" type="text" value="Requisito 1">
+            
+            <p class="labels-modal">Descripción</p>
+            <textarea class="text-area-edit" name=""
+                id="nueva-descripcion">La interfaz de usuario debe ser completamente intuitiva para gatos</textarea>
+            <p class="labels-modal">Patrón</p>
+            <textarea class="text-area-edit" name=""
+                id="nuevo-patron">La interfaz de usuario debe ser completamente intuitiva para gatos</textarea>
+        </div>
         <div class="div-button">
 
             <button id="btn-close-modal2" class="btn-delete">Cancelar</button>
-            <button class="btn-next">Guardar</button>
+            <button id="guardar-requisito" class="btn-next">Guardar</button>
 
         </div>
 
@@ -156,9 +115,6 @@
 
 </section>
 
-<script
-      src="{{ url_for('static', filename='js/depuracion.js') }}"
-      type="module"
-    ></script>
+<script src="{{ url_for('static', filename='js/depuracion.js') }}" type="module"></script>
 
 {% endblock %}

@@ -24,8 +24,8 @@
 
                         <div class="container-req-change">
 
-                            <p class="text-titulo-req2">RF1: Titulo Requisito</p>
-                            <p class="text-det-req2">Descripción requisito</p>
+                            <p class="text-titulo-req2">{{ data['requisito']['identifier'] }}: {{ data['requisito']['title'] }}</p>
+                            <p class="text-det-req2">{{ data['requisito']['description'] }}</p>
     
                         </div>
                         
@@ -33,9 +33,17 @@
 
                         <div class="container-req-change2">
 
-                            <p class="text-titulo-req2">RF1: Titulo Requisito modificado</p>
-                            <p class="text-det-req2">Descripción requisito modificado</p>
-    
+                            {% if data['requisito_despues'] == 'Eliminado' %}
+
+                            <p class="text-titulo-req2">El requisito ha sido eliminado</p>
+                            
+                            {% else %}
+
+                            <p class="text-titulo-req2">{{ data['requisito_despues']['nuevoTitulo'] }}</p>
+                            <p class="text-det-req2">{{ data['requisito_despues']['nuevaDescripcion'] }}</p>
+
+                            {% endif %}
+
                         </div>
 
                     </div>
@@ -45,7 +53,7 @@
                         <div class="container-impact-cost">
 
                             <p class="titles-changes">Impacto</p>
-                            <p class="info-ia-generate">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi facilis numquam libero, odit obcaecati vel eum, quo consequuntur neque voluptas blanditiis ab cumque? Aliquid, eveniet! Blanditiis libero repellat eaque maiores.</p>
+                            <p class="info-ia-generate">{{ data['impacto'] }}</p>
 
 
                         </div>
@@ -53,7 +61,7 @@
                         <div class="container-impact-cost">
 
                             <p class="titles-changes">Costo</p>
-                            <p class="info-ia-generate">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem totam et, laborum illum voluptatem consectetur atque repudiandae, impedit id nisi cum nesciunt blanditiis rerum eum quod. Cum vero totam beatae.</p>
+                            <p class="info-ia-generate">{{ data['costo'] }}</p>
 
                         </div>
 

@@ -260,8 +260,85 @@ def add_validators():
         validadores = get_validators()
         return jsonify(validadores=validadores)
 
-@app.route('/depuracion') 
+@app.route('/depuracion', methods = ['GET', 'POST']) 
 def depuracion():
+
+    if request.method == 'POST':
+        data = request.json
+
+        if(data['tipo'] == 'Eliminar'):
+
+            promt = "Eres una IA que se encargada de darme la siguiente información sin nada más: Según el siguiente contexto de un proyecto, cuál sería el impacto que tendría si se elimina el siguiente requisito: \nCONTEXTO:\n"
+            promt += data['contexto']+"\nREQUISITO A ELIMINAR:\n"
+            promt += "Título: "+data['requisito']['title']+"\nDescripcion: "+data['requisito']['description']+"\nPatrón: "+data['requisito']['patron']
+
+            try:
+                response = model.generate_content(promt)
+                impacto = response.text
+
+            except Exception as e:
+                print(f"Error: {e}")
+                impacto = "No se pudo calcular el impacto"
+            
+
+            promt2 = "Eres una IA que se encargada de darme la siguiente información sin nada más: Según el siguiente contexto de un proyecto, cuál serían los costos asociados que se tendrían si se elimina el siguiente requisito: \nCONTEXTO:\n"
+            promt2 += data['contexto']+"\nREQUISITO A ELIMINAR:\n"
+            promt2 += "Título: "+data['requisito']['title']+"\nDescripcion: "+data['requisito']['description']+"\nPatrón: "+data['requisito']['patron']
+
+            try:
+                response = model.generate_content(promt2)
+                costo = response.text
+
+            except Exception as e:
+                print(f"Error: {e}")
+                costo = "No se pudo calcular el impacto"
+
+            requisito_json = json.dumps(data['requisito'])
+            
+            requisito_despues = "Eliminado"
+
+            redirect_url = url_for('depuracion2', requisito=requisito_json, impacto=impacto, contexto=data['contexto'], costo=costo, requisito_despues=requisito_despues)
+            return jsonify({'redirect': redirect_url})
+            #return jsonify(data), 202
+
+        else:
+            promt = "Eres una IA que se encargada de darme la siguiente información sin nada más: Según el siguiente contexto de un proyecto, cuál sería el impacto que tendría si se edita el siguiente requisito por este otro: \nCONTEXTO:\n"
+            promt += data['contexto']+"\nREQUISITO ANTES:\n"
+            promt += "Título: "+data['requisito']['title']+"\nDescripcion: "+data['requisito']['description']+"\nPatrón: "+data['requisito']['patron']
+            promt += "\nREQUISITO DESPUES:\n"
+            promt += "Título: "+data['nuevoTitulo']+"\nDescripcion: "+data['nuevaDescripcion']+"\nPatrón: "+data['nuevoPatron']
+            
+            try:
+                response = model.generate_content(promt)
+                impacto = response.text
+                print(f"Resultado: {response.text}")
+
+            except Exception as e:
+                print(f"Error: {e}")
+                impacto = "No se pudo calcular el impacto"
+
+            promt2 = "Eres una IA que se encargada de darme la siguiente información sin nada más: Según el siguiente contexto de un proyecto, cuál serían los costos asociados que se tendrían si se edita el siguiente requisito por este otro: \nCONTEXTO:\n"
+            promt2 += data['contexto']+"\nREQUISITO ANTES:\n"
+            promt2 += "Título: "+data['requisito']['title']+"\nDescripcion: "+data['requisito']['description']+"\nPatrón: "+data['requisito']['patron']
+            promt2 += "\nREQUISITO DESPUES:\n"
+            promt2 += "Título: "+data['nuevoTitulo']+"\nDescripcion: "+data['nuevaDescripcion']+"\nPatrón: "+data['nuevoPatron']
+
+            try:
+                response = model.generate_content(promt2)
+                costo = response.text
+
+            except Exception as e:
+                print(f"Error: {e}")
+                costo = "No se pudo calcular el impacto"
+            
+            requisito_json = json.dumps(data['requisito'])
+            
+            requisito_despues_ = {'nuevoTitulo': data['nuevoTitulo'], 'nuevaDescripcion': data['nuevaDescripcion'], 'nuevoPatron': data['nuevoPatron']}
+            requisito_despues = json.dumps(requisito_despues_)
+
+            redirect_url = url_for('depuracion2', requisito=requisito_json, impacto=impacto, contexto=data['contexto'], costo=costo, requisito_despues=requisito_despues)
+            return jsonify({'redirect': redirect_url})
+
 
     requisitos_dep = get_requisitos()
     data = {
@@ -278,6 +355,17 @@ def depuracion():
 
 @app.route('/depuracion2')
 def depuracion2():
+
+    requisito_json = request.args.get('requisito')
+    impacto = request.args.get('impacto')
+    contexto = request.args.get('contexto')
+    costo = request.args.get('costo')
+    requisito_despues_ = request.args.get('requisito_despues')
+
+    # Decodifica el JSON del requisito a un diccionario
+    requisito = json.loads(requisito_json)
+    requisito_despues = json.loads(requisito_despues_)
+
     data = {
         'titulo':'Inicio',
         'navegacion': {
@@ -286,8 +374,14 @@ def depuracion2():
             'asignar': 'Asignar',
             'depuracion': 'Depuración',
             'flecha': 'img/Flecha.png'
-        },        
+        },
+        'requisito': requisito,
+        'impacto': impacto,
+        'contexto': contexto,
+        'requisito_despues': requisito_despues,
+        'costo': costo
     }
+
     return render_template('depuracion2.html', data = data)
 
 # @app.route('/contacto/<nombre>/<int:edad>')
