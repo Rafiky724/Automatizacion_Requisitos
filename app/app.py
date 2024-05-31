@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, url_for, redirect, request, jsonify
-from controllers.requisito_controller import get_requisitos
+from controllers.requisito_controller import get_requisitos, add_requisito, update_requisito, delete_requisito
 from controllers.validators_controller import get_validators
 #from openai import OpenAI
 import google.generativeai as genai
@@ -19,6 +19,23 @@ model = genai.GenerativeModel('gemini-1.5-flash')
 @app.route('/obtener_requisitos', methods=['GET'])
 def obtener_requisitos(): # Aquí deberías obtener tus requisitos
     return jsonify(requisitos=requisitosLast)
+
+@app.route('/get_requisitos', methods=['GET'])
+def get_requisito(): # Aquí deberías obtener tus requisitos
+    requisitos = get_requisitos()
+    return jsonify(requisitos), 202
+
+@app.route('/requisito/<identifier>', methods=['PUT'])
+def update_requisito_route(identifier):
+    data = request.json
+    result, status_code = update_requisito(identifier, data)
+    return jsonify(result), status_code
+
+@app.route('/requisito/<identifier>', methods=['DELETE'])
+def delete_requisito_route(identifier):
+    result, status_code = delete_requisito(identifier)
+    return jsonify(result), status_code
+
 
 
 # @app.before_request
@@ -120,8 +137,6 @@ def patron2():
     if request.method == 'POST':
         data = request.json# Obtener los datos enviados en la solicitud POST
         #print(data)
-
-        from controllers.requisito_controller import add_requisito
 
         if isinstance(data, list):  # Verifica si data es una lista
             results = []
@@ -248,7 +263,7 @@ def add_validators():
 @app.route('/depuracion') 
 def depuracion():
 
-    requisitos_dep = get_requisitos()
+    requisitos_dep = get_requisito()
 
     data = {
         'titulo':'Inicio',
