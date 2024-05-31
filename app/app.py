@@ -263,8 +263,7 @@ def add_validators():
 @app.route('/depuracion') 
 def depuracion():
 
-    requisitos_dep = get_requisito()
-
+    requisitos_dep = get_requisitos()
     data = {
         'titulo':'Inicio',
         'navegacion': {
