@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect, request, jsonify
 from controllers.requisito_controller import get_requisitos, add_requisito, update_requisito, delete_requisito, delete_all
-from controllers.validators_controller import get_validators
+from controllers.validators_controller import get_validators, delete_validator
 #from openai import OpenAI
 import google.generativeai as genai
 import json
@@ -40,6 +40,11 @@ def delete_requisito_route(identifier):
 def delete_all_req():
     return delete_all()
 
+
+@app.route('/validator/<validator_id>', methods=['DELETE'])
+def delete_validator_route(validator_id):
+    result, status_code = delete_validator(validator_id)
+    return jsonify(result), status_code
 
 
 # @app.before_request
