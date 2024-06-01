@@ -18,36 +18,45 @@
         <!-- CARD PATRON -->
         <!-- <a class="ancor-enrutador" href="#"> -->
         <div class="card patron-container-option">
-          <figure class="card-figure">
-            <img
-              class="card-img"
-              src="{{ url_for('static', filename=data['imagenes']['patron_img']) }}"
-              alt="menu-image"
-            />
-          </figure>
+          <a href="{{ url_for('patron') }}">
+            <figure class="card-figure">
+              <img
+                class="card-img"
+                src="{{ url_for('static', filename=data['imagenes']['patron_img']) }}"
+                alt="menu-image"
+              />
+            </figure>
+          </a>
+          
           <p class="card-text">Generar patrón<br />de sintaxis</p>
         </div>
         <!-- </a> -->
         <!-- CARD ASIGNAR -->
         <div class="card asignar-container-option">
-          <figure class="card-figure">
-            <img
-              class="card-img"
-              src="{{ url_for('static', filename=data['imagenes']['asignar_img']) }}"
-              alt="menu-image"
-            />
-          </figure>
+          <a href="{{ url_for('asignar') }}">
+            <figure class="card-figure">
+              <img
+                class="card-img"
+                src="{{ url_for('static', filename=data['imagenes']['asignar_img']) }}"
+                alt="menu-image"
+              />
+            </figure>
+          </a>
+          
           <p class="card-text">Asignar validador<br />a un requisito</p>
         </div>
         <!-- CARD CONTROL -->
         <div class="card control-container-option">
-          <figure class="card-figure">
-            <img
-              class="card-img"
-              src="{{ url_for('static', filename=data['imagenes']['depurar_img']) }}"
-              alt="menu-image"
-            />
-          </figure>
+          <a href="{{ url_for('depuracion') }}">
+            <figure class="card-figure">
+              <img
+                class="card-img"
+                src="{{ url_for('static', filename=data['imagenes']['depurar_img']) }}"
+                alt="menu-image"
+              />
+            </figure>
+          </a>
+          
           <p class="card-text">Control de cambio</p>
         </div>
       </div>

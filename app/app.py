@@ -7,7 +7,6 @@ import json
 import urllib.parse
 import os
 import requests
-
 app = Flask(__name__)
 
 requisitosLast = []
